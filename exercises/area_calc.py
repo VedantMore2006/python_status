@@ -1,7 +1,10 @@
+import math
+
+
 def canno(width, height):
     can = (width * height) / 5
     print(can)
-    can = round((width * height) / 5)
+    can = math.ceil((width * height) / 5)
     print(can)
 
 
