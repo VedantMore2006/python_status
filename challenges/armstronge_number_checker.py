@@ -10,7 +10,7 @@
 #     print(f"The number {num} is not an armstrong number")
 lst = []
 
-for i in range(1, 5000):
+for i in range(1, 1000):
     s = str(i)
     power = len(s)
     total = 0
