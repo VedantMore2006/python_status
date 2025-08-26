@@ -142,20 +142,46 @@ def main():
         create_split_folder(folder, split_pairs)
 
     # === Handle leftover ===
+    # leftover = pairs[num_full_splits * SPLIT_SIZE :]
+    # if leftover:
+    #     if len(leftover) > 3000:
+    #         # Make one more full split folder if leftover is large
+    #         folder = output_dir / f"{DATASET_PREFIX}_{num_full_splits + 1}"
+    #         print(
+    #             f"📂 Creating extra full split (large leftover) with {len(leftover)} pairs..."
+    #         )
+    #         create_split_folder(folder, leftover)
+    #     else:
+    #         # Place leftover in a smaller split folder
+    #         folder = output_dir / f"{DATASET_PREFIX}_leftover"
+    #         print(f"📂 Creating leftover folder with {len(leftover)} pairs...")
+    #         create_split_folder(folder, leftover)
+    # else:
+    #     print("✅ No leftover pairs remaining.")
+    # === Handle leftover ===
     leftover = pairs[num_full_splits * SPLIT_SIZE :]
     if leftover:
-        if len(leftover) > 3000:
-            # Make one more full split folder if leftover is large
+        if len(leftover) > 1500:
+            # Create new folder for leftover
             folder = output_dir / f"{DATASET_PREFIX}_{num_full_splits + 1}"
             print(
-                f"📂 Creating extra full split (large leftover) with {len(leftover)} pairs..."
+                f"📂 Creating extra split (large leftover) with {len(leftover)} pairs..."
             )
             create_split_folder(folder, leftover)
         else:
-            # Place leftover in a smaller split folder
-            folder = output_dir / f"{DATASET_PREFIX}_leftover"
-            print(f"📂 Creating leftover folder with {len(leftover)} pairs...")
-            create_split_folder(folder, leftover)
+            # Merge leftover into the last full split folder
+            folder = output_dir / f"{DATASET_PREFIX}_{num_full_splits}"
+            print(
+                f"🔄 Merging leftover ({len(leftover)} pairs) into last split: {folder.name}"
+            )
+            # Append leftover to that folder
+            existing_folder_pairs = pairs[
+                (num_full_splits - 1) * SPLIT_SIZE : num_full_splits * SPLIT_SIZE
+            ]
+            combined = existing_folder_pairs + leftover
+            # Remove original folder contents and recreate it fully
+            shutil.rmtree(folder)
+            create_split_folder(folder, combined)
     else:
         print("✅ No leftover pairs remaining.")
 
