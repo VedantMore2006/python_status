@@ -1,0 +1,4 @@
+need the user to guess the number weather 
+the number must be randomly generate 
+and the loop must continue until the user gets the number correctly
+

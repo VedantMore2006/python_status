@@ -1,10 +1,9 @@
 import random
 
 
-def guess_the_num():
+def guess_the_num(a):
     print("The number is within and including both 0 and 100")
     while True:
-        a = random.randint(0, 100)
         while True:
             guess = int(input("Guess the number : "))
             if guess > a:
@@ -21,4 +20,5 @@ def guess_the_num():
             break
 
 
-guess_the_num()
+a = random.randint(0, 100)
+guess_the_num(a)
