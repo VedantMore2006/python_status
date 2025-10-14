@@ -1,2 +1,4 @@
-# to make such program that will store the names of the students and will display their marks in the output
-# and this had to be dynamic 
+my_list = []
+my_list.append("Welcome to Secure Python Coding")
+my_list.append("this is the week2 of the course")
+print(my_list)
