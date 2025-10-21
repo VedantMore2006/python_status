@@ -5,5 +5,65 @@
       "print(\"$1\")$0"
     ],
     "description": "Insert print with parentheses and quotes"
+  },
+
+  "If main guard": {
+    "prefix": "ifmain",
+    "body": [
+      "if __name__ == \"__main__\":",
+      "    $1",
+      "    $0"
+    ],
+    "description": "Insert if __name__ == \"__main__\": guard"
+  },
+
+  "For loop (iterable)": {
+    "prefix": "for",
+    "body": [
+      "for ${1:var} in ${2:iterable}:",
+      "    $0"
+    ],
+    "description": "Insert for loop"
+  },
+
+  "Function definition": {
+    "prefix": "def",
+    "body": [
+      "def ${1:func_name}(${2:args}):",
+      "    \"\"\"${3:docstring}\"\"\"",
+      "    $0"
+    ],
+    "description": "Insert function definition with docstring"
+  },
+
+  "Class definition": {
+    "prefix": "class",
+    "body": [
+      "class ${1:ClassName}(${2:object}):",
+      "    \"\"\"${3:docstring}\"\"\"",
+      "    def __init__(self, ${4:args}):",
+      "        $0"
+    ],
+    "description": "Insert class definition with __init__"
+  },
+
+  "Try/Except block": {
+    "prefix": "try",
+    "body": [
+      "try:",
+      "    $1",
+      "except ${2:Exception} as ${3:e}:",
+      "    $0"
+    ],
+    "description": "Insert try/except block"
+  },
+
+  "Input with prompt": {
+    "prefix": "input",
+    "body": [
+      "${1:var} = input(\"$2\")$0"
+    ],
+    "description": "Insert input prompt and assign"
   }
 }
+
