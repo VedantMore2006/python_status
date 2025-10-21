@@ -19,7 +19,8 @@ menu = {
             "water" : 250,
             "coffee" : 24,
             "milk" : 200
-        }
+        },
+        "cost" : 3.0
     }
 }
 resources = {
@@ -28,5 +29,10 @@ resources = {
     "milk" : 200
 }
 
-print(menu.keys())
+for name, info in menu.items():
+    print(name)
+    for key, value in info.items():
+        print(key)
+        for lable, ava in value.items():
+            print(lable)
 
