@@ -2,7 +2,8 @@ def greet(name):
     print("Happy Diwali,", name)
 
 greet("Vedant")
-greet("Athrav")
+greet("Tanvi")
 greet("Ashutosh")
 greet("Nakul")
-greet("Vaibhav")
+greet("Tejas")
+greet("Vaishnavi")
