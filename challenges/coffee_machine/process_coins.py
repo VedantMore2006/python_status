@@ -21,7 +21,6 @@ for i in range(0, no_of_quarters) :
 if total_amount > needed_amount :
     change = total_amount - needed_amount
     print(f"The actual amount needed is {needed_amount}.\nYou have {total_amount}.\nHere are your change {change}.")
+    print("Thankyou for your purchase!!")
 if total_amount < needed_amount:
     print(f"The needed amount is {needed_amount}, You only have {total_amount}\nYou still need {needed_amount - total_amount}\nMoney refunded")
-    
-    
