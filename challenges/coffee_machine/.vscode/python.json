@@ -1,0 +1,9 @@
+{
+  "Print with parentheses and quotes": {
+    "prefix": "print",
+    "body": [
+      "print(\"$1\")$0"
+    ],
+    "description": "Insert print with parentheses and quotes"
+  }
+}
