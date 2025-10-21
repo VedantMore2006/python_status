@@ -20,7 +20,7 @@
   "For loop (iterable)": {
     "prefix": "for",
     "body": [
-      "for ${1:var} in ${2:iterable}:",
+      "for ${1:var} in :",
       "    $0"
     ],
     "description": "Insert for loop"
