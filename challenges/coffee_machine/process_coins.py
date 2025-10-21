@@ -1,3 +1,4 @@
+import resources as rs
 pennies = 0.01
 nickels = 0.05
 dimes = 0.1
@@ -17,9 +18,10 @@ no_of_quarters = int(input("How many quarters do u have : "))
 for i in range(0, no_of_quarters) :
     total_amount += quarter
 
-print("The total amount of monwy you possess is", round(total_amount, 2))
-print(no_of_pennies)
-print(no_of_nickels)
-print(no_of_dimes)
-print(no_of_quarters)
+if total_amount > needed_amount :
+    change = total_amount - needed_amount
+    print(f"The actual amount needed is {needed_amount}.\nYou have {total_amount}.\nHere are your change {change}.")
+if total_amount < needed_amount:
+    print(f"The needed amount is {needed_amount}, You only have {total_amount}\nYou still need {needed_amount - total_amount}\nMoney refunded")
+    
     
